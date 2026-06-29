@@ -1,0 +1,176 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: lightgrey !important;
+}
+
+header nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+header nav .links {
+    display: flex;
+    gap: 2rem;
+}
+
+header nav .links a {
+    font-size: 1rem;
+}
+
+header nav h2 {
+    font-family: Orbitron;
+    color: white;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    font-family: Jura;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: darkgray;
+}
+
+.add_model_form,
+.add_variant_form {
+    width: 80%;
+    margin: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-family: Jura;
+}
+
+form input,
+textarea {
+    border: solid 2px darkgray !important;
+}
+
+.add-variant-form button,
+.add-car-form button {
+    background-color: black;
+    color: white;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.add-variant-form button:hover,
+.add-car-form button:hover {
+    background-color: black;
+    color: darkgray;
+    transform: scale(1.05);
+}
+
+.logout-form {
+    padding: 0;
+}
+
+.logout-form .logout-form-button {
+    border: none;
+    padding: 0;
+    font-family: Jura;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.logout-form .logout-form-button:hover {
+    color: darkgray;
+}
+
+.edit-garage-section {
+    padding-bottom: 10rem;
+}
+
+.edit-garage-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 3rem;
+    width: 80%;
+    margin: auto;
+}
+
+.edit-garage {
+    padding: 3rem;
+    width: 100%;
+    background-color: black;
+    border-radius: 1rem;
+    font-family: Jura;
+    font-weight: bolder;
+}
+
+.edit-garage a {
+    background-color: white;
+    border-radius: 0.5rem;
+    display: block;
+    padding: 0.5rem;
+    width: fit-content;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.edit-garage a:hover {
+    color: darkgray;
+    transform: scale(1.05);
+}
+
+.edit-variants {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+.variant-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.delete-variant-form .delete-variant-form-button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.delete-variant-form .delete-variant-form-button:hover {
+    color: darkgray;
+    transform: scale(1.05);
+}
+
+#flash-banner {
+    background-color: rgb(78, 77, 77);
+    color: white;
+    font-family: Jura;
+    position: fixed;
+    z-index: 1000;
+    bottom: 3%;
+    right: 3%;
+    transform: translateX(120%);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+}
+
+#flash-banner.show {
+    transform: translateX(0);
+}

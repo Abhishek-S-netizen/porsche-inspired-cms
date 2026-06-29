@@ -1,0 +1,25 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: black;
+    padding: 4rem;
+    margin: 0;
+}
+
+footer h1 {
+    font-family: Orbitron;
+    color: white;
+}
+
+footer h5 {
+    font-family: Jura;
+    color: grey;
+}

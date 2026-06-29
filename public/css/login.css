@@ -1,0 +1,104 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-image: url("../images/Porsche_911_GT3_SC.jpg");
+    position: relative;
+    height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 20%, black),
+        linear-gradient(to top, transparent 20%, black);
+}
+
+form {
+    background: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    z-index: 12;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+form div {
+    text-align: center;
+    color: white;
+}
+
+form div h1 {
+    font-family: Orbitron;
+}
+
+form div h2 {
+    font-family: Jura;
+}
+
+form input {
+    display: block;
+    margin: auto;
+    padding-left: 1rem;
+    width: 50%;
+    height: 3rem;
+    border: none;
+    border-radius: 1rem;
+    font-family: Jura;
+}
+
+form .home-link a {
+    text-decoration: none;
+    color: white;
+    font-family: Jura;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+form .home-link a:hover {
+    color: darkgray;
+}
+
+form button {
+    display: block;
+    background-color: black;
+    border: none;
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    border-radius: 1rem;
+    font-family: Jura;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+form button:hover {
+    color: darkgray;
+    transform: scale(1.05);
+}
+
+.error-message {
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-family: Jura;
+}
