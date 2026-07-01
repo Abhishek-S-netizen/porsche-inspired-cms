@@ -196,6 +196,7 @@ header img {
 
 .highlights-container .highlight-card {
     flex: 0 0 60%;
+    height: 30rem;
     position: relative;
     border-radius: 1rem;
     overflow: hidden;
@@ -313,6 +314,73 @@ header img {
 }
 
 .engine-section .engine-content {
+    font-family: Jura;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 2rem;
+    margin: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+}
+
+.model-card {
+    background-color: lightgrey;
+    width: 100%;
+    padding: 3rem;
+    position: relative;
+    border-radius: 1rem;
+}
+
+.model-card .learn-more-link {
+    margin-top: 1rem;
+}
+
+.model-card a {
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.model-card a:hover {
+    color: darkgray;
+    transform: scale(1.05);
+}
+
+.model-card img {
+    display: block;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 90%;
+}
+
+.model-card .model-info {
+    margin: auto;
+    font-family: Jura;
+    text-align: center;
+}
+
+.model-card .model-info .model-specs {
+    display: flex;
+    text-align: center;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.explore-more-content {
     font-family: Jura;
     margin: auto;
     width: 80%;

@@ -32,16 +32,17 @@
             <h2>PORSCHE</h2>
             <div class="links">
                 <a href="/">Home</a>
-                <a href="">Edit</a>
+                <a href="/admin/dashboard">Dashboard</a>
                 <a href="">Users</a>
                 <a href="">Profile</a>
                 <form action="{{ route('admin.logout') }}" method="POST" class="logout-form">
                     @csrf
-                    <button>Logout</button>
+                    <button class="logout-form-button">Logout</button>
                 </form>
             </div>
         </nav>
     </header>
+
 
     <section>
         <div class="add_variant_form">

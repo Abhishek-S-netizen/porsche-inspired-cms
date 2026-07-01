@@ -28,6 +28,22 @@
 
 <body>
     @include("components.flash-modal")
+    <header>
+        <nav>
+            <h2>PORSCHE</h2>
+            <div class="links">
+                <a href="/">Home</a>
+                <a href="/admin/dashboard">Dashboard</a>
+                <a href="">Users</a>
+                <a href="">Profile</a>
+                <form action="{{ route('admin.logout') }}" method="POST" class="logout-form">
+                    @csrf
+                    <button class="logout-form-button">Logout</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
 
     <section>
         <div class="add_model_form">

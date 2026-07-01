@@ -62,56 +62,56 @@ driveContainer.addEventListener("mousemove", (e) => {
     driveContainer.scrollLeft = scrollLeft + walk;
 })
 
-function driveSnapToNearest() {
-    const driveCard = driveContainer.querySelector("div");
-    const driveCardWidth = driveCard.offsetWidth;
-    const driveGap = 32;
-    const driveStep = driveCardWidth + driveGap;
+/* function driveSnapToNearest() {
+   const driveCard = driveContainer.querySelector("div");
+   const driveCardWidth = driveCard.offsetWidth;
+   const driveGap = 32;
+   const driveStep = driveCardWidth + driveGap;
 
-    const driveNearestIndex = Math.round(driveContainer.scrollLeft / driveStep);
-    const driveTargetScroll = driveNearestIndex * driveStep;
+   const driveNearestIndex = Math.round(driveContainer.scrollLeft / driveStep);
+   const driveTargetScroll = driveNearestIndex * driveStep;
 
-    driveContainer.scrollTo({
-        left: driveTargetScroll,
-        behavior: "smooth"
-    });
+   driveContainer.scrollTo({
+       left: driveTargetScroll,
+       behavior: "smooth"
+   });
 
 }
 
 function snapToNearest() {
-    const card = highlightsContainer.querySelector("div");
-    const cardWidth = card.offsetWidth;
-    const gap = 32; // 2rem gap in px
-    const step = cardWidth + gap;
+   const card = highlightsContainer.querySelector("div");
+   const cardWidth = card.offsetWidth;
+   const gap = 32; // 2rem gap in px
+   const step = cardWidth + gap;
 
-    const nearestIndex = Math.round(highlightsContainer.scrollLeft / step);
-    const targetScroll = nearestIndex * step;
+   const nearestIndex = Math.round(highlightsContainer.scrollLeft / step);
+   const targetScroll = nearestIndex * step;
 
-    highlightsContainer.scrollTo({
-        left: targetScroll,
-        behavior: "smooth" // <-- smooth animation
-    });
+   highlightsContainer.scrollTo({
+       left: targetScroll,
+       behavior: "smooth" // <-- smooth animation
+   });
 }
 
 ["mouseup", "mouseleave"].forEach(evt => {
-    highlightsContainer.addEventListener(evt, () => {
-        if (isDown) {
-            isDown = false;
-            snapToNearest(); // smooth snap when drag ends
-        }
-        highlightsContainer.style.scrollSnapType = "x mandatory";
-    });
+   highlightsContainer.addEventListener(evt, () => {
+       if (isDown) {
+           isDown = false;
+           snapToNearest(); // smooth snap when drag ends
+       }
+       highlightsContainer.style.scrollSnapType = "x mandatory";
+   });
 });
 
 ["mouseup", "mouseleave"].forEach(evt => {
-    driveContainer.addEventListener(evt, () => {
-        if (isDown) {
-            isDown = false;
-            driveSnapToNearest(); // smooth snap when drag ends
-        }
-        driveContainer.style.scrollSnapType = "x mandatory";
-    });
-});
+   driveContainer.addEventListener(evt, () => {
+       if (isDown) {
+           isDown = false;
+           driveSnapToNearest(); // smooth snap when drag ends
+       }
+       driveContainer.style.scrollSnapType = "x mandatory";
+   });
+}); */
 
 window.addEventListener('scroll', () => {
     const rect = driveSection.getBoundingClientRect();

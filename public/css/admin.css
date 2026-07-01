@@ -1,3 +1,24 @@
+/* 
+ * Porsche Inspired CMS - Admin Stylesheet
+ * High-performance dark aesthetic with Porsche Red highlights
+ */
+
+:root {
+    --bg-dark-base: #16191e;
+    --bg-dark-panel: rgba(22, 24, 29);
+    --bg-dark-header: rgba(14, 15, 18, 0.95);
+    --porsche-red: #d50032;
+    --porsche-red-hover: #ff003c;
+    --porsche-red-glow: rgba(213, 0, 50, 0.25);
+    --text-primary: #f8f9fa;
+    --text-secondary: #c5c6c7;
+    --text-muted: #8b949e;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color-focus: rgba(213, 0, 50, 0.4);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Jura', sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -7,168 +28,449 @@ body {
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    background-color: lightgrey !important;
+    background: radial-gradient(circle at 50% 50%, #282b32 0%, var(--bg-dark-base) 100%) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-body);
+    transition: padding-left 0.3s ease;
 }
 
+/* Make space for floating sidebar on desktop */
+@media (min-width: 993px) {
+    body {
+        padding-left: calc(260px + 6rem) !important;
+    }
+}
+
+/* ==========================================
+   HEADER & NAVIGATION (FLOATING SIDEBAR BY DEFAULT)
+   ========================================== */
 header nav {
-    background-color: black;
+    background-color: var(--bg-dark-header) !important;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    bottom: 2rem;
+    width: 260px;
+    z-index: 1000;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+header nav h2 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0 0 3.5rem 0;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
 }
 
 header nav .links {
     display: flex;
-    gap: 2rem;
-}
-
-header nav .links a {
-    font-size: 1rem;
-}
-
-header nav h2 {
-    font-family: Orbitron;
-    color: white;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    height: calc(100% - 7rem);
+    /* Take remaining height */
+    align-items: flex-start;
+    box-sizing: border-box;
 }
 
 header nav a {
     text-decoration: none;
-    color: white;
-    font-family: Jura;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 0.5px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 header nav a:hover {
-    color: darkgray;
+    color: var(--text-primary);
+    border-color: var(--porsche-red);
+    padding-left: 1.6rem;
 }
 
-.add_model_form,
-.add_variant_form {
-    width: 80%;
-    margin: auto;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    font-family: Jura;
-}
-
-form input,
-textarea {
-    border: solid 2px darkgray !important;
-}
-
-.add-variant-form button,
-.add-car-form button {
-    background-color: black;
-    color: white;
-    transition: color 0.3s ease, transform 0.5s ease;
-}
-
-.add-variant-form button:hover,
-.add-car-form button:hover {
-    background-color: black;
-    color: darkgray;
-    transform: scale(1.05);
-}
-
+/* Logout Form positioned at the bottom of the sidebar */
 .logout-form {
     padding: 0;
+    margin-top: auto;
+    /* Push to the very bottom */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logout-form .logout-form-button {
+    width: 100%;
     border: none;
-    padding: 0;
-    font-family: Jura;
-    font-size: 1rem;
-    background-color: black;
-    color: white;
-    transition: color 0.3s ease, transform 0.5s ease;
+    padding: 0.8rem 1.2rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    background-color: rgba(213, 0, 50, 0.08);
+    color: var(--porsche-red);
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
 }
 
 .logout-form .logout-form-button:hover {
-    color: darkgray;
+    color: var(--text-primary);
+    border-color: var(--porsche-red);
+    background-color: var(--porsche-red);
 }
 
+/* ==========================================
+   RESPONSIVE DESIGN OVERRIDES (MOBILE SCREEN)
+   ========================================== */
+@media (max-width: 992px) {
+    body {
+        padding-left: 0 !important;
+    }
+
+    header nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 2rem;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        margin: 0;
+    }
+
+    header nav h2 {
+        margin: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+        width: auto;
+        font-size: 1.5rem;
+    }
+
+    header nav .links {
+        flex-direction: row;
+        gap: 1.5rem;
+        width: auto;
+        height: auto;
+        align-items: center;
+    }
+
+    header nav a {
+        width: auto;
+        padding: 0.5rem 1rem;
+        background: transparent;
+        border: none;
+    }
+
+    header nav a:hover {
+        background: transparent;
+        color: var(--porsche-red);
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+
+    .logout-form {
+        margin-top: 0;
+        width: auto;
+    }
+
+    .logout-form .logout-form-button {
+        width: auto;
+        padding: 0.5rem 1.2rem;
+        border-radius: 6px;
+    }
+}
+
+/* ==========================================
+   CARDS & FORM LAYOUTS
+   ========================================== */
+.add_model_form,
+.add_variant_form {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+    font-family: var(--font-body);
+}
+
+.card {
+    background: var(--bg-dark-panel) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(213, 0, 50, 0.25) !important;
+}
+
+.card-header {
+    background: rgba(18, 19, 23, 0.95) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 1.5rem 2rem !important;
+}
+
+.card-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-primary) !important;
+    margin: 0;
+}
+
+.card-body {
+    padding: 2rem !important;
+}
+
+/* Form Elements Styling */
+form label,
+.form-label {
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+form input,
+form select,
+textarea,
+.form-control {
+    background-color: rgba(13, 14, 16, 0.7) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1rem !important;
+    font-family: var(--font-body);
+    transition: all 0.3s ease !important;
+}
+
+form input:focus,
+form select:focus,
+textarea:focus,
+.form-control:focus {
+    background-color: rgba(13, 14, 16, 0.95) !important;
+    outline: none !important;
+}
+
+form input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.add-variant-form button[type="submit"],
+.add-car-form button[type="submit"],
+.card button[type="submit"],
+.btn-primary {
+    background: linear-gradient(135deg, var(--porsche-red) 0%, #a00024 100%) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 2rem !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+.add-variant-form button[type="submit"]:hover,
+.add-car-form button[type="submit"]:hover,
+.card button[type="submit"]:hover,
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    background: linear-gradient(135deg, var(--porsche-red-hover) 0%, #b30029 100%) !important;
+}
+
+/* Alert Boxes */
+.alert-danger {
+    background-color: rgba(213, 0, 50, 0.15) !important;
+    border: 1px solid rgba(213, 0, 50, 0.4) !important;
+    color: #ffcccc !important;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    padding: 1rem;
+}
+
+/* ==========================================
+   EDIT GARAGE / RESOURCE GRID
+   ========================================== */
 .edit-garage-section {
-    padding-bottom: 10rem;
+    padding: 4rem 0 8rem 0;
 }
 
 .edit-garage-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 3rem;
-    width: 80%;
+    width: 90%;
+    max-width: 1300px;
     margin: auto;
 }
 
 .edit-garage {
-    padding: 3rem;
-    width: 100%;
-    background-color: black;
-    border-radius: 1rem;
+    background: var(--bg-dark-panel);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
     font-family: Jura;
     font-weight: bolder;
 }
 
+.edit-garage:hover {
+    transform: translateY(-5px);
+}
+
 .edit-garage a {
-    background-color: white;
-    border-radius: 0.5rem;
-    display: block;
-    padding: 0.5rem;
-    width: fit-content;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
     text-decoration: none;
-    color: black;
-    transition: color 0.3s ease, transform 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .edit-garage a:hover {
-    color: darkgray;
-    transform: scale(1.05);
+    background: var(--text-primary);
+    color: #000000 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .edit-variants {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 .variant-links {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    gap: 1rem;
+}
+
+.variant-links:last-child {
+    border-bottom: none;
+}
+
+.variant-links a {
+    margin: 0;
+    font-size: 0.85rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    color: var(--text-secondary) !important;
+}
+
+.variant-links a:hover {
+    background: transparent;
+    color: var(--porsche-red) !important;
+    box-shadow: none;
+}
+
+.delete-variant-form {
+    padding: 0;
+    margin: 0;
 }
 
 .delete-variant-form .delete-variant-form-button {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.5s ease;
+    padding: 0.4rem 1rem !important;
+    border-radius: 6px !important;
+    border: none !important;
+    background-color: rgba(213, 0, 50, 0.3) !important;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
 }
 
 .delete-variant-form .delete-variant-form-button:hover {
-    color: darkgray;
-    transform: scale(1.05);
+    background-color: var(--porsche-red) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--porsche-red) !important;
+    box-shadow: 0 0 10px var(--porsche-red-glow) !important;
+    transform: translateY(-1px) !important;
 }
 
+/* ==========================================
+   FLASH SUCCESS ALERTS
+   ========================================== */
 #flash-banner {
-    background-color: rgb(78, 77, 77);
-    color: white;
-    font-family: Jura;
+    background: rgba(18, 20, 24, 0.95);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     position: fixed;
-    z-index: 1000;
-    bottom: 3%;
-    right: 3%;
-    transform: translateX(120%);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease;
+    z-index: 10000;
+    bottom: 4%;
+    right: 4%;
+    transform: translateX(150%);
+    padding: 1.5rem 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--porsche-red-glow);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #flash-banner.show {

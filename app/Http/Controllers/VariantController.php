@@ -10,9 +10,10 @@ class VariantController extends Controller
 {
     public function showVariantPage(Car $car, Variant $variant) {
         abort_unless($car->variants->contains($variant) , 404);
+        $carVariants = $car->variants;
         $highlights = $variant->highlights;
         $engineDetails = $variant->engineDetails;
 
-        return view("common-template",compact("car","variant","highlights","engineDetails")); 
+        return view("common-template",compact("car","variant","highlights","engineDetails","carVariants")); 
     }
 }

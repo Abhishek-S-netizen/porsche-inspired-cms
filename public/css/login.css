@@ -1,3 +1,21 @@
+/* 
+ * Porsche Inspired CMS - Login Stylesheet
+ * High-performance dark login portal with glassmorphic cards
+ */
+
+:root {
+    --bg-dark-base: #0d0f12;
+    --porsche-red: #d50032;
+    --porsche-red-hover: #ff003c;
+    --porsche-red-glow: rgba(213, 0, 50, 0.25);
+    --text-primary: #f8f9fa;
+    --text-secondary: #c5c6c7;
+    --text-muted: #8b949e;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Jura', sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -6,99 +24,160 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
     background-image: url("../images/Porsche_911_GT3_SC.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     height: 100vh;
+    font-family: var(--font-body);
 }
 
+/* Dark Overlay on Background for better contrast */
 body::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 20%, black),
-        linear-gradient(to top, transparent 20%, black);
+    background: linear-gradient(135deg, rgba(13, 15, 18, 0.9) 0%, rgba(20, 22, 27, 0.7) 100%);
 }
 
+/* ==========================================
+   LOGIN CARD & FORM
+   ========================================== */
 form {
-    background: rgba(100, 100, 100, 0.3);
-    backdrop-filter: blur(15px);
-    border-radius: 1rem;
-    z-index: 12;
-    width: 60%;
+    background: rgba(18, 20, 24, 0.75) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    z-index: 10;
+    width: 90%;
+    max-width: 550px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    padding: 3rem;
+    gap: 2.2rem;
+    padding: 3.5rem 3rem;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
 }
 
 form div {
     text-align: center;
-    color: white;
+    color: var(--text-primary);
 }
 
 form div h1 {
-    font-family: Orbitron;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 form div h2 {
-    font-family: Jura;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
 }
 
+/* Inputs styling */
 form input {
     display: block;
-    margin: auto;
-    padding-left: 1rem;
-    width: 50%;
-    height: 3rem;
-    border: none;
-    border-radius: 1rem;
-    font-family: Jura;
+    margin: 0;
+    padding: 0.75rem 1.2rem !important;
+    width: 100% !important;
+    height: 3.2rem !important;
+    background-color: rgba(13, 14, 16, 0.6) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+form input:focus {
+    background-color: rgba(13, 14, 16, 0.9) !important;
+    outline: none;
+}
+
+form input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Home back link */
+form .home-link {
+    margin-top: 0.5rem;
 }
 
 form .home-link a {
     text-decoration: none;
-    color: white;
-    font-family: Jura;
-    font-weight: bold;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 
 form .home-link a:hover {
-    color: darkgray;
+    color: var(--porsche-red);
 }
 
+/* Button styling */
 form button {
     display: block;
-    background-color: black;
-    border: none;
-    width: 10rem;
-    height: 3rem;
-    color: white;
-    border-radius: 1rem;
-    font-family: Jura;
-    transition: color 0.3s ease, transform 0.5s ease;
+    background: linear-gradient(135deg, var(--porsche-red) 0%, #a00024 100%) !important;
+    border: none !important;
+    width: 100% !important;
+    height: 3.2rem !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
 }
 
 form button:hover {
-    color: darkgray;
-    transform: scale(1.05);
+    transform: translateY(-2px) !important;
+    background: linear-gradient(135deg, var(--porsche-red-hover) 0%, #b30029 100%) !important;
 }
 
+/* Errors messaging */
 .error-message {
-    background-color: black;
-    color: white;
-    border-radius: 1rem;
-    padding: 1rem;
-    font-family: Jura;
+    background-color: rgba(213, 0, 50, 0.15);
+    border: 1px solid rgba(213, 0, 50, 0.4);
+    color: #ffcccc;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+.error-message h6 {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
 }

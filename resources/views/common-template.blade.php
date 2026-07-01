@@ -209,8 +209,37 @@
     </section>
 
     <section>
-        <div>
-            
+        <div class="explore-more-content">
+            <h1>Explore other models</h1>
+        </div>
+        <div class="models-grid">
+            @foreach($carVariants as $x)
+                <div class="model-card">
+                    <img src="{{ $x->side_profile_url }}" alt="">
+                    <div class="model-info">
+                        <h1><strong>{{ $x->variant }}</strong></h1>
+                        <div class="model-specs">
+                            <div>
+                                <h6>3.9 s</h6>
+                                <p>Acceleration</p>
+                            </div>
+                            <div>
+                                <h6>290 kW / 384 PS</h6>
+                                <p>Power</p>
+                            </div>
+                            <div>
+                                <h6>294 km/h</h6>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <div class="learn-more-link">
+                            <a href="{{ route('variant.page', [$car->slug, $x->slug]) }}">
+                                Learn more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 

@@ -34,7 +34,6 @@
             <h2>PORSCHE</h2>
             <div class="links">
                 <a href="/">Home</a>
-                <a href="">Edit</a>
                 <a href="">Users</a>
                 <a href="">Profile</a>
                 <form action="{{ route('admin.logout') }}" method="POST" class="logout-form">
@@ -254,10 +253,10 @@
                                     {{ $xVariant->variant }}
                                 </a>
                                 <a href="{{ route('admin.highlightspage', [$x->slug, $xVariant->slug]) }}">
-                                    Add highlights
+                                    Highlights
                                 </a>
                                 <a href="{{ route('admin.enginedetailspage', [$x->slug, $xVariant->slug]) }}">
-                                    Add Engine Details
+                                    Engine Details
                                 </a>
                                 <form action="{{ route('admin.deletevariant') }}" method="POST" class="delete-variant-form">
                                     @csrf
