@@ -75,7 +75,19 @@
 
     <section class="highlights-section">
         <div class="highlights-container">
-            <div class="highlight-card">
+
+            @foreach($highlights as $x)
+                <div class="highlight-card">
+                    <img src="{{ $x->highlight_image_url }}" alt="">
+                    <div class="highlight-content">
+                        <h2>{{ $x->title }}</h2>
+                        <h6>
+                            {{ $x->description }}  
+                        </h6>
+                    </div>
+                </div>
+            @endforeach
+            <!-- <div class="highlight-card">
                 <img src="{{ asset('images/highlights_demo.avif') }}" alt="">
                 <div class="highlight-content">
                     <h2>Design</h2>
@@ -137,16 +149,7 @@
                         Clear lines and a muscular rear section create a much sharper character. On the GTS models, the newly designed front Fascia, with striking vertical aerodynamic elements including adaptive air intake flaps, provide an additional distinctive visual feature.  
                     </h6>
                 </div>
-            </div>
-            <div class="highlight-card">
-                <img src="{{ asset('images/highlights_demo.avif') }}" alt="">
-                <div class="highlight-content">
-                    <h2>Design</h2>
-                    <h6>
-                        Clear lines and a muscular rear section create a much sharper character. On the GTS models, the newly designed front Fascia, with striking vertical aerodynamic elements including adaptive air intake flaps, provide an additional distinctive visual feature.  
-                    </h6>
-                </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -173,16 +176,18 @@
         </div>
 
         <div class="drive-container">
-            <div class="drive-card">
-                <img src="{{ asset('images/engine_demo.avif') }}" alt="">
-                <div class="drive-content">
-                    <h2>Design</h2>
-                    <h6>
-                        Clear lines and a muscular rear section create a much sharper character. On the GTS models, the newly designed front Fascia, with striking vertical aerodynamic elements including adaptive air intake flaps, provide an additional distinctive visual feature.  
-                    </h6>
+            @foreach($engineDetails as $x)
+                <div class="drive-card">
+                    <img src="{{ $x->engine_image_url }}" alt="">
+                    <div class="drive-content">
+                        <h2>{{ $x->title }}</h2>
+                        <h6>
+                            {{ $x->description }}  
+                        </h6>
+                    </div>
                 </div>
-            </div>
-            <div class="drive-card">
+            @endforeach
+            <!-- <div class="drive-card">
                 <img src="{{ asset('images/engine_demo.avif') }}" alt="">
                 <div class="drive-content">
                     <h2>Design</h2>
@@ -199,7 +204,7 @@
                         Clear lines and a muscular rear section create a much sharper character. On the GTS models, the newly designed front Fascia, with striking vertical aerodynamic elements including adaptive air intake flaps, provide an additional distinctive visual feature.  
                     </h6>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
