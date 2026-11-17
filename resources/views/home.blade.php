@@ -29,9 +29,6 @@
 
 <body>
     <header>
-        <nav>
-            <h2>PORSCHE</h2>
-        </nav>
 
         <section class='parallax-container'>
             <img id="hero-image" class='parallax' src="{{ asset('images/Porsche_911_GT3_SC.jpg') }}" alt="">
