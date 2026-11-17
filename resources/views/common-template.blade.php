@@ -65,11 +65,6 @@
     </section>
 
     <section class="gallery-section">
-        <div class="gallery-content">
-            <h5>
-                {{ $variant->gallery_content }}
-            </h5>
-        </div>
         <div class="gallery-container">
             <img id="gallery-1" src="{{ $variant->gallery_1_url }}" alt="">
             <img id="gallery-2" src="{{ $variant->gallery_2_url }}" alt="">

@@ -4,15 +4,17 @@
  * Guards Red used with surgical restraint.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap');
+
 /* ─────────────────────────────────────────────
    DESIGN TOKENS
 ───────────────────────────────────────────── */
 :root {
     /* Surfaces — slightly darkened, warm stone */
-    --bg-base: #E8E5DF;
-    --bg-panel: #F2F0EB;
+    --bg-base: #ECEAE4;
+    --bg-panel: #DFDBD2;
     --bg-sidebar: #F5F3EE;
-    --bg-card-header: #ECEAE4;
+    --bg-card-header: #D5D0C6;
 
     /* Guards Red — the only accent */
     --porsche-red: #D50032;
@@ -20,19 +22,19 @@
 
     /* Typography */
     --text-primary: #1A1814;
-    --text-secondary: #6B655E;
-    --text-muted: #A8A29A;
+    --text-secondary: #3B3731;
+    --text-muted: #5E5850;
 
     /* Borders — slightly deeper to match darker base */
-    --border: #D4CFC8;
-    --border-hover: #BAB5AD;
+    --border: #C4BEB4;
+    --border-hover: #ABA499;
     --border-focus: #D50032;
 
     /* Syncopate: brand, structural headings, buttons */
     --font-brand: 'Syncopate', sans-serif;
     --font-heading: 'Syncopate', sans-serif;
-    /* Inter: all content — inputs, labels, body, meta */
-    --font-body: 'Inter', sans-serif;
+    /* Jura: all content — inputs, labels, body, meta (matching rest of site) */
+    --font-body: 'Jura', sans-serif;
 }
 
 /* ─────────────────────────────────────────────
@@ -390,10 +392,10 @@ textarea,
     border-radius: 8px !important;
     color: var(--text-primary) !important;
     padding: 0.75rem 1rem !important;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-family: var(--font-body) !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
     transition: border-color 0.15s ease !important;
     box-shadow: none !important;
     width: 100%;
@@ -445,12 +447,12 @@ input[type="file"]::file-selector-button {
     padding: 0.75rem 1.1rem;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 0.58rem;
+    font-size: 0.68rem;
     letter-spacing: 1.5px;
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 600;
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-    margin: 0;
+    margin: 0 0.9rem 0 0 !important;
     border-radius: 0;
 }
 
@@ -489,10 +491,10 @@ input[type="file"]::file-selector-button:hover {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-family: var(--font-body) !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     color: var(--text-primary);
     cursor: pointer;
     transition: border-color 0.15s ease;
@@ -553,10 +555,10 @@ input[type="file"]::file-selector-button:hover {
 /* Each option */
 .custom-select-option {
     padding: 0.75rem 1rem;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-family: var(--font-body) !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     color: var(--text-secondary);
     cursor: pointer;
     transition: background 0.1s ease, color 0.1s ease;
@@ -671,9 +673,11 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .inline-form {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 0;
     margin: 0;
+    line-height: 1;
 }
 
 /* Variant rows */
@@ -712,32 +716,35 @@ input[type="file"]::file-selector-button:hover {
 
 .variant-name {
     font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
     color: var(--text-primary);
 }
 
 .variant-meta {
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    letter-spacing: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.3px;
 }
 
 /* ─────────────────────────────────────────────
    ACTION LINKS & DELETE BUTTONS
 ───────────────────────────────────────────── */
 .btn-tech-outline {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
     background: transparent;
     border: none;
-    color: var(--text-muted) !important;
+    color: var(--text-secondary) !important;
     padding: 0;
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     border-radius: 0;
     text-decoration: none !important;
     transition: color 0.15s ease;
@@ -754,15 +761,19 @@ input[type="file"]::file-selector-button:hover {
 
 .delete-variant-form .delete-variant-form-button,
 .delete-car-form .delete-car-form-button {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2 !important;
     padding: 0 !important;
+    margin: 0 !important;
     border: none !important;
     border-bottom: 1px solid transparent !important;
     background-color: transparent !important;
-    color: var(--text-muted) !important;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.75rem;
-    letter-spacing: 0;
+    color: var(--text-secondary) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.5px;
     transition: color 0.15s ease !important;
     cursor: pointer;
     box-shadow: none !important;
