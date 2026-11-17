@@ -30,88 +30,70 @@ window.addEventListener("scroll", () => {
     galleryImage3.style.transform = `scale(${scaleImage3})`;
 });
 
-let isDown = false;
-let startX;
-let scrollLeft;
+function enableDragScroll(container) {
+    if (!container) return;
 
-highlightsContainer.addEventListener("mousedown", (e) => {
-    isDown = true;
-    startX = e.pageX;
-    highlightsContainer.style.scrollSnapType = "none"; // disable snap while dragging
-    scrollLeft = highlightsContainer.scrollLeft;
-});
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let lastPageX = 0;
+    let velocity = 0;
+    let momentumId = null;
 
-driveContainer.addEventListener("mousedown", (e) => {
-    isDown = true;
-    startX = e.pageX;
-    driveContainer.style.scrollSnapType = "none";
-    scrollLeft = driveContainer.scrollLeft;
-});
+    function cancelMomentum() {
+        if (momentumId) {
+            cancelAnimationFrame(momentumId);
+            momentumId = null;
+        }
+    }
 
-highlightsContainer.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const walk = startX - e.pageX;
-    highlightsContainer.scrollLeft = scrollLeft + walk;
-});
+    function applyMomentum() {
+        if (Math.abs(velocity) < 0.5) {
+            velocity = 0;
+            momentumId = null;
+            return;
+        }
 
-driveContainer.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const walk = startX - e.pageX;
-    driveContainer.scrollLeft = scrollLeft + walk;
-})
+        container.scrollLeft += velocity;
+        velocity *= 0.95; // friction damping (coasts smoothly to a stop)
+        momentumId = requestAnimationFrame(applyMomentum);
+    }
 
-/* function driveSnapToNearest() {
-   const driveCard = driveContainer.querySelector("div");
-   const driveCardWidth = driveCard.offsetWidth;
-   const driveGap = 32;
-   const driveStep = driveCardWidth + driveGap;
+    function stopDragging() {
+        if (!isDown) return;
+        isDown = false;
+        cancelMomentum();
+        momentumId = requestAnimationFrame(applyMomentum);
+    }
 
-   const driveNearestIndex = Math.round(driveContainer.scrollLeft / driveStep);
-   const driveTargetScroll = driveNearestIndex * driveStep;
+    container.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return; // left click only
+        e.preventDefault(); // prevent browser native image ghost-drag
+        cancelMomentum();
+        isDown = true;
+        startX = e.pageX;
+        lastPageX = e.pageX;
+        velocity = 0;
+        scrollLeft = container.scrollLeft;
+    });
 
-   driveContainer.scrollTo({
-       left: driveTargetScroll,
-       behavior: "smooth"
-   });
+    container.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const delta = lastPageX - e.pageX;
+        lastPageX = e.pageX;
+        velocity = delta * 1.4; // flick sensitivity
+        const walk = startX - e.pageX;
+        container.scrollLeft = scrollLeft + walk;
+    });
 
+    container.addEventListener("mouseup", stopDragging);
+    container.addEventListener("mouseleave", stopDragging);
+    window.addEventListener("mouseup", stopDragging);
 }
 
-function snapToNearest() {
-   const card = highlightsContainer.querySelector("div");
-   const cardWidth = card.offsetWidth;
-   const gap = 32; // 2rem gap in px
-   const step = cardWidth + gap;
-
-   const nearestIndex = Math.round(highlightsContainer.scrollLeft / step);
-   const targetScroll = nearestIndex * step;
-
-   highlightsContainer.scrollTo({
-       left: targetScroll,
-       behavior: "smooth" // <-- smooth animation
-   });
-}
-
-["mouseup", "mouseleave"].forEach(evt => {
-   highlightsContainer.addEventListener(evt, () => {
-       if (isDown) {
-           isDown = false;
-           snapToNearest(); // smooth snap when drag ends
-       }
-       highlightsContainer.style.scrollSnapType = "x mandatory";
-   });
-});
-
-["mouseup", "mouseleave"].forEach(evt => {
-   driveContainer.addEventListener(evt, () => {
-       if (isDown) {
-           isDown = false;
-           driveSnapToNearest(); // smooth snap when drag ends
-       }
-       driveContainer.style.scrollSnapType = "x mandatory";
-   });
-}); */
+enableDragScroll(highlightsContainer);
+enableDragScroll(driveContainer);
 
 window.addEventListener('scroll', () => {
     const rect = driveSection.getBoundingClientRect();

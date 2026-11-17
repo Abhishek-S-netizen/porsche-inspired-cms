@@ -371,10 +371,10 @@ header nav a:hover {
 form label,
 .form-label {
     display: block;
-    color: var(--text-secondary);
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 500;
+    color: var(--text-primary);
+    font-family: var(--font-body) !important;
+    font-size: 0.76rem;
+    font-weight: 700 !important;
     text-transform: uppercase;
     letter-spacing: 0.75px;
     margin-bottom: 0.45rem;
@@ -440,26 +440,27 @@ input[type="file"].form-control {
 
 input[type="file"]::file-selector-button {
     height: 100%;
-    background: var(--bg-card-header);
+    background: var(--text-primary) !important;
     border: none;
-    border-right: 1px solid var(--border);
-    color: var(--text-secondary);
+    border-right: 1px solid var(--text-primary);
+    color: #FFFFFF !important;
     padding: 0.75rem 1.1rem;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     letter-spacing: 1.5px;
-    font-family: var(--font-body);
-    font-weight: 600;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     margin: 0 0.9rem 0 0 !important;
     border-radius: 0;
 }
 
+input[type="file"].form-control:hover::file-selector-button,
 input[type="file"]::file-selector-button:hover {
-    background: var(--porsche-red);
-    border-right-color: var(--porsche-red);
-    color: #fff;
+    background: var(--porsche-red) !important;
+    border-right-color: var(--porsche-red) !important;
+    color: #FFFFFF !important;
 }
 
 /* ─────────────────────────────────────────────
@@ -587,9 +588,9 @@ input[type="file"]::file-selector-button:hover {
 .btn-primary {
     background: var(--porsche-red) !important;
     color: #FFFFFF !important;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.65rem;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: none !important;
@@ -608,6 +609,16 @@ input[type="file"]::file-selector-button:hover {
     transform: none !important;
     box-shadow: none !important;
     color: #FFFFFF !important;
+}
+
+button:disabled,
+.btn-porsche-primary:disabled,
+.card button[type="submit"]:disabled,
+.delete-variant-form-button:disabled,
+.logout-form-button:disabled {
+    opacity: 0.55 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
 }
 
 /* ─────────────────────────────────────────────
