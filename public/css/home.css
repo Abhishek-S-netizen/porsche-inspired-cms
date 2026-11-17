@@ -7,6 +7,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    background-color: #E8E5DF !important;
 }
 
 .parallax-container {

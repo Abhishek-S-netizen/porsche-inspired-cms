@@ -12,18 +12,6 @@ class HomeController extends Controller
         return view("home",compact("cars"));
     }
 
-    public function showDemoModelsPage() {
-        return view("models-page");
-    }
-
-    public function show911VariantPage() {
-        return view("911/911_template");
-    }
-
-    public function showAdminDashboard() {
-        return view("Admin/admin-dashboard-official");
-    }
-
     public function showLoginPage() {
         return view("Admin/login");
     }

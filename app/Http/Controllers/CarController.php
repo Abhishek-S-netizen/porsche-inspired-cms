@@ -8,8 +8,9 @@ use App\Models\Variant;
 
 class CarController extends Controller
 {
-    public function showModels(Car $car) {
-        $carVariants = $car->variants()->get();
-        return view("variants-page",compact("car","carVariants"));
+    public function showModels(Car $car)
+    {
+        $carVariants = $car->variants()->with("specs")->orderBy("order_index")->get();
+        return view("variants-page", compact("car", "carVariants"));
     }
 }

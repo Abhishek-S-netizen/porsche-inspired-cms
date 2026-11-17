@@ -12,7 +12,8 @@ use App\Models\Variant;
 
 class AdminPageController extends Controller
 {
-    public function verifyAdmin(Request $request) {
+    public function verifyAdmin(Request $request)
+    {
         $credentials = $request->validate([
             "email" => "required|email|exists:users,email",
             "password" => "required"
@@ -22,13 +23,14 @@ class AdminPageController extends Controller
             $request->session()->regenerate();
             return redirect()->intended("/admin/dashboard");
         }
-        
+
         return back()->withErrors([
             "login" => "Invalid credentials"
         ]);
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -37,7 +39,8 @@ class AdminPageController extends Controller
 
     /************************************************************************************ */
 
-    public function addAdmin(Request $request) {
+    public function addAdmin(Request $request)
+    {
         $request->validate([
             "name" => "required|string|max:255",
             "email" => "required|email|unique:users,email",
@@ -50,14 +53,15 @@ class AdminPageController extends Controller
             "password" => Hash::make($request->password)
         ]);
 
-        return redirect()->back()->with("success","User added successfully");
+        return redirect()->back()->with("success", "User added successfully");
     }
-    
+
     /*************************************************************************************/
 
-    public function editPassword(Request $request) {
+    public function editPassword(Request $request)
+    {
         $request->validate([
-            "current_password" => "required|string|min:8", 
+            "current_password" => "required|string|min:8",
             "password" => "required|string|min:8|confirmed"
         ]);
 
@@ -67,7 +71,7 @@ class AdminPageController extends Controller
             $user->update([
                 "password" => Hash::make($request->password)
             ]);
-            return redirect()->back()->with("success","Password updated successfully");
+            return redirect()->back()->with("success", "Password updated successfully");
         }
 
         return back()->withErrors([
@@ -77,62 +81,85 @@ class AdminPageController extends Controller
 
     /*****************************************************************************************/
 
-    public function showAdminDashboard() {
+    public function showAdminDashboard()
+    {
         $cars = Car::get();
         $variants = Variant::get();
-        return view("Admin/admin-dashboard-official",compact("cars","variants"));
+        return view("Admin/admin-dashboard-official", compact("cars", "variants"));
     }
 
     /****************************************************************************************/
 
-    public function showAddUserPage() {
+    public function showAddUserPage()
+    {
         return view("Admin/add-user");
     }
 
     /***************************************************************************************/
 
-    public function showUpdatePasswordPage() {
+    public function showUpdatePasswordPage()
+    {
         $user = Auth::user();
-        return view("Admin/update-password",compact("user"));
+        return view("Admin/update-password", compact("user"));
     }
 
     /***************************************************************************************/
-    
-    public function showEditModelPage(Car $car) {
-        return view("Admin/admin-edit-model",compact("car"));
+
+    public function showEditModelPage(Car $car)
+    {
+        return view("Admin/admin-edit-model", compact("car"));
     }
 
-    /*************************************************************************************/    
-    
-    public function showEditVariantPage(Car $car, Variant $variant) {
+    /*************************************************************************************/
+
+    public function showEditVariantPage(Car $car, Variant $variant)
+    {
         abort_unless(
-            $car->variants()->where("id", $variant->id)->exists(), 404
+            $car->variants()->where("id", $variant->id)->exists(),
+            404
         );
-        
-        return view("Admin/admin-edit-variant",compact("car","variant"));
+
+        return view("Admin/admin-edit-variant", compact("car", "variant"));
     }
 
-    /*************************************************************************************/    
-    
-    public function showHighlightsPage(Car $car, Variant $variant) {
+    /*************************************************************************************/
+
+    public function showHighlightsPage(Car $car, Variant $variant)
+    {
         abort_unless(
-            $car->variants()->where("id",$variant->id)->exists(), 404
+            $car->variants()->where("id", $variant->id)->exists(),
+            404
         );
 
         $highlights = $variant->highlights()->get();
 
-        return view("Admin/admin-add-highlights",compact("car","variant","highlights"));
+        return view("Admin/admin-add-highlights", compact("car", "variant", "highlights"));
     }
 
-    /*************************************************************************************/    
-    
-    public function showEngineDetailsPage(Car $car, Variant $variant) {
+    /*************************************************************************************/
+
+    public function showEngineDetailsPage(Car $car, Variant $variant)
+    {
         abort_unless(
-            $car->variants()->where("id",$variant->id)->exists(), 404
+            $car->variants()->where("id", $variant->id)->exists(),
+            404
         );
 
         $engineDetails = $variant->engineDetails()->get();
 
-        return view("Admin/admin-add-engine-details",compact("car","variant","engineDetails"));
+        return view("Admin/admin-add-engine-details", compact("car", "variant", "engineDetails"));
+    }
+
+    public function showSpecsPage(Car $car, Variant $variant)
+    {
+        abort_unless(
+            $car->variants()->where("id", $variant->id)->exists(),
+            404
+        );
+
+        $specs = $variant->specs()->pluck("value", "key");
+        $specFields = AdminSpecsController::SPEC_FIELDS;
+
+        return view("Admin/admin-add-specs", compact("car", "variant", "specs", "specFields"));
     }
 }

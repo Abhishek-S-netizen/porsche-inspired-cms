@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <img id="hero-image" class="hero-image" src="{{ $variant->parallax_image_url }}" alt="">
@@ -47,13 +51,13 @@
     <section class="specification-section">
         <div class="specification-container">
             <div>
-                <h1>3.0 s</h1>
-                <h5>0-60 mph</h5>
+                <h1>{{ $specs['Acceleration (0-100kph)'] ?? '-' }}</h1>
+                <h5>Acceleration (0-100 kph)</h5>
                 <br><br>
-                <h1>532 hp</h1>
-                <h5>Max. Power Combined</h5>
+                <h1>{{ $specs['Power in PS'] ?? $specs['Power in kW'] ?? '-' }}</h1>
+                <h5>Max. Power</h5>
                 <br><br>
-                <h1>194 mph</h1>
+                <h1>{{ $specs['Top Speed'] ?? '-' }}</h1>
                 <h5>Top track speed</h5>
             </div>
             <img src="{{ $variant->front_profile_url }}" alt="">
@@ -82,7 +86,7 @@
                     <div class="highlight-content">
                         <h2>{{ $x->title }}</h2>
                         <h6>
-                            {{ $x->description }}  
+                            {{ $x->description }}
                         </h6>
                     </div>
                 </div>
@@ -182,7 +186,7 @@
                     <div class="drive-content">
                         <h2>{{ $x->title }}</h2>
                         <h6>
-                            {{ $x->description }}  
+                            {{ $x->description }}
                         </h6>
                     </div>
                 </div>
@@ -250,4 +254,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
     <script src="{{ asset('javascript/variant.js') }}"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
@@ -38,20 +42,6 @@
         </section>
     </header>
 
-    <section class="featured">
-        <div class="featured-container">
-            <div class='featured-card'>
-                <img src="{{ asset('images/demo_1.webp') }}" alt="">
-            </div>
-            <div class='featured-card'>
-                <img src="{{ asset('images/demo_2.jpg') }}" alt="">
-            </div>
-            <div class='featured-card'>
-                <img src="{{ asset('images/demo_3.jpg') }}" alt="">
-            </div>
-        </div>
-    </section>
-
     <section class="models">
         <div>
             @foreach($cars->chunk(2) as $row)
@@ -64,7 +54,7 @@
                         </div>
                     @endforeach
                 </div>
-            @endforeach    
+            @endforeach
         </div>
     </section>
 
@@ -72,4 +62,5 @@
 
     <script src="{{ asset('javascript/home.js') }}"></script>
 </body>
+
 </html>
