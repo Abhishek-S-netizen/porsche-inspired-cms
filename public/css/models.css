@@ -88,3 +88,71 @@ footer h5 {
     font-family: Jura;
     color: grey;
 }
+
+/* ─────────────────────────────────────────────
+   TABLET RESPONSIVE (<= 1024px)
+───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 7rem;
+        padding-top: 8rem;
+    }
+
+    .model-card {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .model-card img {
+        position: static;
+        transform: none;
+        width: 95%;
+        margin: -5.5rem auto 1rem auto;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE RESPONSIVE (<= 768px)
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .models-grid {
+        grid-template-columns: 1fr;
+        row-gap: 6.5rem;
+        margin: 1.25rem;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .model-card {
+        padding: 1.5rem 1.25rem 1.75rem 1.25rem;
+    }
+
+    .model-card img {
+        position: static;
+        transform: none;
+        width: 95%;
+        margin: -5.25rem auto 1rem auto;
+    }
+
+    .model-card .model-info .model-specs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+    }
+
+    .model-card .model-info .model-specs h6 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+
+    .model-card .model-info .model-specs p {
+        font-size: 0.72rem;
+        margin-bottom: 0;
+    }
+
+    footer {
+        padding: 2rem 1.25rem;
+    }
+}

@@ -10,7 +10,22 @@ const driveSection = document.querySelector(".drive-parallax-container");
 // gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 
+function clearMobileGalleryTransforms() {
+    if (window.innerWidth <= 768) {
+        if (galleryImage1) galleryImage1.style.transform = "";
+        if (galleryImage2) galleryImage2.style.transform = "";
+        if (galleryImage3) galleryImage3.style.transform = "";
+    }
+}
+
+window.addEventListener("resize", clearMobileGalleryTransforms);
+
 window.addEventListener("scroll", () => {
+    if (!gallerySection || window.innerWidth <= 768) {
+        clearMobileGalleryTransforms();
+        return;
+    }
+
     const rect = gallerySection.getBoundingClientRect();
     // Get the section's position relative to the screen
 

@@ -401,3 +401,251 @@ footer h5 {
     font-family: Jura;
     color: grey;
 }
+
+/* ─────────────────────────────────────────────
+   TABLET RESPONSIVE (<= 1024px)
+───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero-content {
+        width: 75%;
+    }
+
+    .name {
+        font-size: 12vw;
+    }
+
+    .side-profile-image-container {
+        height: 30rem;
+    }
+
+    .side-profile-image-container img {
+        width: 82%;
+    }
+
+    .specification-container {
+        gap: 2rem;
+    }
+
+    .specification-container div,
+    .specification-container img {
+        padding: 2.5rem;
+    }
+
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 8rem;
+        padding-top: 8rem;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE RESPONSIVE (<= 768px)
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* Hero */
+    header img {
+        height: 85vh;
+        background-attachment: scroll;
+    }
+
+    .hero-content {
+        width: 90%;
+        top: auto;
+        bottom: 8%;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h4 {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Side profile & watermark */
+    .side-profile {
+        padding-bottom: 4rem;
+    }
+
+    .side-profile-image-container {
+        height: 14rem;
+        overflow: visible;
+    }
+
+    .name {
+        display: none;
+    }
+
+    .side-profile-image-container img {
+        width: 92%;
+        top: 48%;
+    }
+
+    .model-variant-name {
+        padding: 5.5rem 1rem 0 1rem;
+        text-align: center;
+    }
+
+    .model-variant-name h1 {
+        font-size: 2.6rem;
+    }
+
+    /* Specifications */
+    .specification-section {
+        padding-bottom: 5rem;
+    }
+
+    .specification-container {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        padding: 0 1.25rem;
+        text-align: center;
+    }
+
+    .specification-container div {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .specification-container img {
+        width: 95%;
+        padding: 1rem 0;
+    }
+
+    /* Gallery (stacked cleanly on mobile) */
+    .gallery-section {
+        height: auto;
+        padding: 2rem 1.25rem 3rem 1.25rem;
+    }
+
+    .gallery-content {
+        position: static;
+        width: 100%;
+        left: auto;
+        top: auto;
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .gallery-container #gallery-1,
+    .gallery-container #gallery-2,
+    .gallery-container #gallery-3 {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        transition: none;
+    }
+
+    /* Highlights & Drive carousels */
+    .highlights-section {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .highlights-container,
+    .drive-container {
+        gap: 1rem;
+        margin: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .highlights-container .highlight-card {
+        flex: 0 0 85%;
+        height: 22rem;
+    }
+
+    .drive-container .drive-card {
+        flex: 0 0 85%;
+        height: 24rem;
+    }
+
+    .highlights-container .highlight-card .highlight-content,
+    .drive-container .drive-card .drive-content {
+        width: 90%;
+        left: 5%;
+        bottom: 6%;
+        text-align: left;
+    }
+
+    .highlights-container .highlight-card .highlight-content h2,
+    .drive-container .drive-card .drive-content h2 {
+        font-size: 1.35rem;
+    }
+
+    .highlights-container .highlight-card .highlight-content h6,
+    .drive-container .drive-card .drive-content h6 {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    /* Drive parallax & Engine intro */
+    .drive-parallax-container {
+        height: 55vh;
+    }
+
+    .engine-section {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .engine-section .engine-content {
+        width: 90%;
+    }
+
+    /* Explore other models grid */
+    .explore-more-content {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+
+    .models-grid {
+        grid-template-columns: 1fr;
+        row-gap: 6.5rem;
+        margin: 1.25rem;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .model-card {
+        padding: 1.5rem 1.25rem 1.75rem 1.25rem;
+    }
+
+    .model-card img {
+        position: static;
+        transform: none;
+        width: 95%;
+        margin: -5.25rem auto 1rem auto;
+    }
+
+    .model-card .model-info .model-specs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+    }
+
+    .model-card .model-info .model-specs h6 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+
+    .model-card .model-info .model-specs p {
+        font-size: 0.72rem;
+        margin-bottom: 0;
+    }
+
+    footer {
+        padding: 2rem 1.25rem;
+    }
+}
