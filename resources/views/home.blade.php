@@ -33,13 +33,13 @@
         <section class='parallax-container'>
             <img id="hero-image" class='parallax' src="{{ asset('images/Porsche_911_GT3_SC.jpg') }}" alt="">
             <div class="title-container">
-                <h1 class="title">911 GT3 S/C</h1>
-                <a href="">Discover More</a>
+                <h1 class="title">PORSCHE</h1>
+                <a href="#models">Discover More</a>
             </div>
         </section>
     </header>
 
-    <section class="models">
+    <section id="models" class="models">
         <div>
             @foreach($cars->chunk(2) as $row)
                 <div class="models-container">

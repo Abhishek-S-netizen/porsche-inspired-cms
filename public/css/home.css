@@ -7,7 +7,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    background-color: #E8E5DF !important;
 }
 
 .parallax-container {
@@ -34,6 +33,31 @@ body {
     z-index: 1;
     will-change: transform;
     pointer-events: none;
+}
+
+nav {
+    font-family: Orbitron;
+    background-color: none;
+    top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    color: white;
+    transition: background 0.5s ease, color 0.5s ease, border-radius 0.5s ease, top 0.5s ease, width 0.5s ease;
+}
+
+nav.scrolled {
+    background: rgba(200, 200, 200, 0.5);
+    backdrop-filter: blur(10px);
+    color: black;
+    width: 80%;
+    border-radius: 1rem;
+    top: 1rem;
 }
 
 .parallax-container .title-container {
@@ -65,12 +89,36 @@ body {
     background-color: rgba(200, 200, 200, 0.2);
 }
 
+.featured {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.featured-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+}
+
+.featured-card {
+    background-color: aqua;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 25rem;
+}
+
+.featured-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .models-container {
     /*display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;*/
-    padding-top: 10rem;
+
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -79,6 +127,7 @@ body {
 
 .models {
     padding-bottom: 10rem;
+    scroll-margin-top: 2rem;
 }
 
 .models-card {
@@ -161,4 +210,112 @@ footer h1 {
 footer h5 {
     font-family: Jura;
     color: grey;
+}
+
+/* Always show Discover More button on touch devices (no hover) */
+@media (hover: none) {
+    .models-card a {
+        opacity: 1;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   TABLET RESPONSIVE (<= 1024px)
+───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .parallax-container .title-container .title {
+        font-size: 4.5rem;
+    }
+
+    .models-container {
+        margin: 2rem;
+        gap: 1.5rem;
+    }
+
+    .models-card {
+        height: 24rem;
+    }
+
+    .models-card h1 {
+        font-size: 3rem;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE RESPONSIVE (<= 768px)
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .parallax-container {
+        height: 85vh;
+    }
+
+    .parallax-container .title-container {
+        left: 6%;
+        right: 6%;
+        top: 55%;
+    }
+
+    .parallax-container .title-container .title {
+        font-size: 3.4rem;
+        line-height: 1.05;
+        margin-bottom: 1rem;
+    }
+
+    .parallax-container .title-container a {
+        display: inline-block;
+        padding: 0.8rem 1.4rem;
+        font-size: 0.95rem;
+    }
+
+    .featured {
+        padding: 4rem 1.25rem;
+    }
+
+    .featured-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .featured-card {
+        width: 100%;
+    }
+
+    .models {
+        padding-top: 1.5rem;
+        padding-bottom: 4rem;
+    }
+
+    .models-container {
+        flex-direction: column;
+        gap: 1.25rem;
+        margin: 1.25rem;
+    }
+
+    .models-card {
+        width: 100%;
+        flex: none;
+        height: 20rem;
+    }
+
+    .models-card:hover {
+        flex: none;
+    }
+
+    .models-card h1 {
+        font-size: 2.6rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    .models-card a {
+        opacity: 1;
+        padding: 0.7rem 1.1rem;
+        font-size: 0.9rem;
+        bottom: 6%;
+        right: 5%;
+    }
+
+    footer {
+        padding: 2rem 1.25rem;
+    }
 }
